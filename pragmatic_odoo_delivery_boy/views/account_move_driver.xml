@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_account_move_driver_inherit" model="ir.ui.view">
+            <field name="name">Customer invoice driver form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//form//sheet//group//group[@id='header_left_group']" position="inside">
+                    <field name="delivery_boy" options="{'no_create': True}" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
