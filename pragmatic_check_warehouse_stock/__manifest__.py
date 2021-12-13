@@ -1,6 +1,6 @@
 {
     'name': 'Assign Warehouse on stock availability.',
-    'version': '13.0.4',
+    'version': '13.0.5',
     'author': 'Pragmatic TechSoft Pvt Ltd.',
     'website': 'http://www.pragtech.co.in',
     'category': 'Website',

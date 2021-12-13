@@ -23,13 +23,13 @@
         </t>
 
         <t t-if="product_type == 'product' and _.contains(['always_allow'], inventory_availability)">
-            <t t-if="virtual_available gt 0">
+            <t t-if="virtual_available_formatted gt 0">
 
                 <div t-if="inventory_availability == 'always_allow'" t-attf-class="availability_message_#{product_template} text-success mt16">
-                    <t t-if="virtual_available &gt; stock_buffer_qty">
+                    <t t-if="virtual_available_formatted &gt; stock_buffer_qty">
                         In Stock
                     </t>
-                    <t t-if="virtual_available &lt;= stock_buffer_qty">
+                    <t t-if="virtual_available_formatted &lt;= stock_buffer_qty">
                         Only <t t-esc="virtual_available_formatted" /> <t t-esc="uom_name" /> available
                     </t>
                 </div>
@@ -38,7 +38,7 @@
             <div t-if="cart_qty" t-attf-class="availability_message_#{product_template} text-warning mt8">
                 You already added <t t-if="!virtual_available">all</t> <t t-esc="cart_qty" /> <t t-esc="uom_name" /> in your cart.
             </div>
-            <div t-if="!cart_qty and virtual_available lte 0" t-attf-class="availability_message_#{product_template} text-danger mt16"><i class="fa fa-exclamation-triangle" role="img" aria-label="Warning" title="Warning"/> Temporarily out of stock</div>
+            <div t-if="!cart_qty and virtual_available_formatted lte 0" t-attf-class="availability_message_#{product_template} text-danger mt16"><i class="fa fa-exclamation-triangle" role="img" aria-label="Warning" title="Warning"/> Temporarily out of stock</div>
         </t>
         <div t-if="product_type == 'product' and inventory_availability == 'custom'" t-attf-class="availability_message_#{product_template} text-success mt16">
             <t t-esc="custom_message" />
