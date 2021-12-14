@@ -31,6 +31,8 @@ VariantMixin._onChangeCombinationStock = function (ev, $parent, combination) {
 
     var qty = $parent.find('input[name="add_qty"]').val();
 
+    console.log("combination---->>>", combination);
+
     $parent.find('#add_to_cart').removeClass('out_of_stock');
     $parent.find('#buy_now').removeClass('out_of_stock');
      if (combination.product_type === 'product' && _.contains(['always', 'threshold'], combination.inventory_availability)) {
@@ -83,6 +85,8 @@ VariantMixin._onChangeCombinationStock = function (ev, $parent, combination) {
             'website_sale_stock.product_availability',
             combination
         ));
+
+        console.log("message===>>>", $message);
 
         $('div.availability_messages').html($message);
     });
