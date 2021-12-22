@@ -14,10 +14,10 @@ class CustomVariantController(VariantController):
 
         product_id = request.env[
             'product.product'].sudo().browse(int(product_id))
-        if product_id:
-            product_data = product_id.qty_available
-        else:
-            product_data = 0
+        # if product_id:
+        #     product_data = product_id.qty_available
+        # else:
+        #     product_data = 0
         pricelist = self._get_pricelist(pricelist_id)
         ProductTemplate = request.env['product.template']
         if 'context' in kw:
@@ -38,7 +38,7 @@ class CustomVariantController(VariantController):
             })
 
         res.update({
-            'qty_available': product_data,
+            # 'qty_available': product_data,
             'stock_buffer': product_id.stock_buffer,
         })
 
