@@ -13,7 +13,7 @@ class ProductTemplate(models.Model):
     stock_buffer = fields.Float('Stock Buffer')
 
     def _get_combination_info(self, combination=False, product_id=False, add_qty=1, pricelist=False, parent_combination=False, only_template=False):
-        """Override this method to add forecasted qty in the
+        """Override this method to add qty_available in the
         virtual_available_formatted for displaying on the website."""
         combination_info = super(ProductTemplate, self)._get_combination_info(
             combination=combination, product_id=product_id, add_qty=add_qty, pricelist=pricelist,
@@ -25,7 +25,7 @@ class ProductTemplate(models.Model):
 
             combination_info.update({
                 # added forecasted quantity of all location.
-                'virtual_available_formatted': product.virtual_available,
+                'virtual_available_formatted': product.qty_available,
             })
         return combination_info
 

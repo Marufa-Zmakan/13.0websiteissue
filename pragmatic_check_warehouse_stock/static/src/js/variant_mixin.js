@@ -67,12 +67,13 @@ VariantMixin._onChangeCombinationStock = function (ev, $parent, combination) {
                 qty = combination.virtual_available || 1;
                 $input_add_qty.val(qty);
             }
-            if (qty > combination.virtual_available
-                || combination.virtual_available < 1 || qty < 1) {
+
+            if (qty > combination.virtual_available_formatted
+                || combination.virtual_available_formatted < 1 || qty < 1) {
                 $parent.find('#add_to_cart').addClass('disabled out_of_stock');
                 $parent.find('#buy_now').addClass('disabled out_of_stock');
             }
-            }
+        }
 
     xml_load.then(function () {
         $('.oe_website_sale')
